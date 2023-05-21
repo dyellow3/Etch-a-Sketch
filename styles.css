@@ -1,0 +1,43 @@
+body {
+    background-color: black;
+}
+
+.sketchpad {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90hv;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    border:3px;
+    color: white;
+    border-style: solid;
+    border-color: white;
+}
+
+.boxes {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    outline: 1px solid white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gridSize, .options {
+    margin: 2%;
+}
