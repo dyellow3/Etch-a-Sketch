@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: grey;
 }
 
 .sketchpad {
@@ -8,6 +8,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 90hv;
+    
+}
+
+.content {
+    display: flex;
+    align-items: center;
 }
 
 .header {

@@ -2,6 +2,7 @@ let boxContainers;
 let isMouseDown = false;
 let drawEnable = true;
 let size = 0;
+let selectedColor = 'red';
 
 function createGrid(newSize) {
     if(newSize > 25) {
@@ -71,7 +72,7 @@ function adjustSize() {
 
 function draw(box) {
     if (drawEnable) {
-        box.style.backgroundColor = 'red';
+        box.style.backgroundColor = selectedColor;
     }
     else {
         box.style.backgroundColor = 'transparent';
@@ -102,4 +103,12 @@ options.forEach(option => {
     });
 });
 
-
+$(document).ready(function() {
+    $("#colorpicker").spectrum({
+      color: selectedColor,
+      change: function(color) {
+        selectedColor = color.toHexString();
+      }
+    });
+  });
+  
