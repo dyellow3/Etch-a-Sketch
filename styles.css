@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: gray;
 }
 
 .sketchpad {
@@ -7,30 +7,21 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90hv;
-    
 }
 
-.content {
-    display: flex;
-    align-items: center;
-}
-
-.header {
+/*.header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 8vh;
-    border:3px;
     color: white;
-    border-style: solid;
-    border-color: white;
-}
+}*/
 
 .boxes {
     display: grid;
     align-items: center;
     justify-content: center;
+    margin: 10%;
 }
 
 .box {
@@ -45,5 +36,4 @@ body {
 }
 
 .gridSize, .options {
-    margin: 2%;
 }

@@ -15,29 +15,32 @@
 
 <body>
     <div class="container">
-        <div class="gridSize">
-            <input type="text" id="userInput" placeholder="Enter size (Max 10)">
-            <button id="size">Change Size</button>
+
+        <div class="sketchpad">
+            <div class="gridSize">
+                <input type="text" id="userInput" placeholder="Enter size (Max 10)">
+                <button id="size">Change Size</button>
+            </div>
+            <div class="boxes"></div>
         </div>
 
-        <div class="content">
-            <div class="colors">
-                <input type="text" id="colorpicker" />
-            </div>
-            <div class="sketchpad">
-                <div class="header">SKETCHPAD</div>
-                <div class="boxes"></div>
-            </div>
-        </div>
 
         <div class="options">
             <button class="draw option">Draw</button>
             <button class="erase option">Erase</button>
+
         </div>
+
+        <div class="colors">
+            <input type="text" id="drawColorpicker" />
+            <input type="text" id="backgroundColorpicker" />
+            <input type="text" id="outlineColorpicker" />
+        </div>
+
     </div>
 
-    
-    
+
+
 </body>
 
 </html>

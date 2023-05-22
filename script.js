@@ -1,11 +1,14 @@
+
 let boxContainers;
 let isMouseDown = false;
 let drawEnable = true;
 let size = 0;
-let selectedColor = 'red';
+let drawColor = 'red';
+let outlineColor = 'white';
+let backgroundColor = 'gray';
 
 function createGrid(newSize) {
-    if(newSize > 25) {
+    if (newSize > 25) {
         return console.log("Exceeded 25!")
     }
     const grid = document.querySelector('.boxes');
@@ -14,7 +17,7 @@ function createGrid(newSize) {
     boxes.forEach((box) => {
         grid.removeChild(box);
     })
-    for (let i = 0; i < newSize**2; i++) {
+    for (let i = 0; i < newSize ** 2; i++) {
         let box = document.createElement('div');
         box.classList.add('box');
         grid.appendChild(box);
@@ -59,25 +62,26 @@ function adjustSize() {
 
     const boxes = document.querySelectorAll('.box');
     boxes.forEach(box => {
-        let boxSize = `${(smallestDimension * (0.64/size))}px`;
+        let boxSize = `${(smallestDimension * (0.64 / size))}px`;
         box.style.width = boxSize;
         box.style.height = boxSize;
     });
 
-    const header = document.querySelector('.header');
-    const boxWidth = parseInt(boxes[0].style.width);
-    const totalBoxWidth = boxWidth * size;
-    header.style.width = `${totalBoxWidth}px`;
+    //const header = document.querySelector('.header');
+    //const boxWidth = parseInt(boxes[0].style.width);
+    //const totalBoxWidth = boxWidth * size;
+    //header.style.width = `${totalBoxWidth}px`;
 }
 
 function draw(box) {
     if (drawEnable) {
-        box.style.backgroundColor = selectedColor;
+        box.style.backgroundColor = drawColor;
     }
     else {
         box.style.backgroundColor = 'transparent';
     }
 }
+
 
 //TODO -- make the paint color adjustable, background of body adjustable, box border color transparent option etc.
 //TODO -- fix/replace buggy painting
@@ -103,12 +107,26 @@ options.forEach(option => {
     });
 });
 
-$(document).ready(function() {
-    $("#colorpicker").spectrum({
-      color: selectedColor,
-      change: function(color) {
-        selectedColor = color.toHexString();
-      }
-    });
-  });
-  
+$("#backgroundColorpicker").spectrum({
+    color: backgroundColor,
+    change: function (color) {
+        backgroundColor = color.toHexString();
+        var background = $("body").css("background-color");
+        $("body").css("background-color", backgroundColor);
+    }
+});
+
+$("#drawColorpicker").spectrum({
+    color: drawColor,
+    change: function (color) {
+        drawColor = color.toHexString();
+    }
+});
+
+$("#outlineColorpicker").spectrum({
+    color: outlineColor,
+    change: function (color) {
+        outlineColor = color.toHexString();
+        $('.box').css('outline', '1px solid ' + outlineColor);
+    }
+});
