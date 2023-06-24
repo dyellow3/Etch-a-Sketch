@@ -1,4 +1,3 @@
-
 let boxContainers;
 let isMouseDown = false;
 let drawEnable = true;
@@ -101,8 +100,12 @@ options.forEach(option => {
     option.addEventListener('click', (event) => {
         if (event.target.classList.contains('draw')) {
             drawEnable = true;
-        } else {
+        } 
+        else if (event.target.classList.contains('erase')) {
             drawEnable = false;
+        }
+        else {
+            createGrid(size);
         }
     });
 });
